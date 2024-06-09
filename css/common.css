@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  color: #212121;
+  line-height: 1.5;
+}
+
+.js-images {
+  list-style: none;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: raw;
+  flex-wrap: wrap;
+  gap: 48px;
+  column-gap: 24px;
+  padding: 156px 100px;
+}
