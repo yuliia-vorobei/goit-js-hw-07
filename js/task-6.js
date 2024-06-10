@@ -7,22 +7,26 @@ const amount = createButton.addEventListener("click", function () {
   createBoxes(input.value);
 });
 
+if (input.value >= 1 && input.value <= 100) {
+  createBoxes();
+}
 function createBoxes(amount) {
   div.innerHTML = "";
-  if (input.value >= 1 && input.value <= 100) {
-    let step = 30;
-    for (let i = 1; i <= input.value; i++) {
-      const divEl = document.createElement("div");
-      div.append(divEl);
-      step += 10;
-      divEl.style.width = `${step}px`;
-      divEl.style.height = `${step}px`;
-      divEl.style.backgroundColor = getRandomHexColor();
-    }
+  const fragment = document.createDocumentFragment();
+  let step = 30;
+  for (let i = 1; i <= input.value; i++) {
+    const divEl = document.createElement("div");
+    fragment.appendChild(divEl);
+    step += 10;
+    divEl.style.width = `${step}px`;
+    divEl.style.height = `${step}px`;
+    divEl.style.backgroundColor = getRandomHexColor();
   }
+  div.appendChild(fragment);
   input.value = "";
 }
 destroyButton.addEventListener("click", destroyBoxes);
+
 function destroyBoxes() {
   div.innerHTML = "";
 }
