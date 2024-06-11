@@ -4,17 +4,16 @@ const input = divControls.querySelector("input");
 const createButton = document.querySelector("button[data-create]");
 const destroyButton = document.querySelector("button[data-destroy]");
 const amount = createButton.addEventListener("click", function () {
-  createBoxes(input.value);
+  if (input.value >= 1 && input.value <= 100) {
+    createBoxes(input.value);
+  }
 });
 
-if (input.value >= 1 && input.value <= 100) {
-  createBoxes();
-}
 function createBoxes(amount) {
   div.innerHTML = "";
   const fragment = document.createDocumentFragment();
   let step = 30;
-  for (let i = 1; i <= input.value; i++) {
+  for (let i = 1; i <= amount; i++) {
     const divEl = document.createElement("div");
     fragment.appendChild(divEl);
     step += 10;
